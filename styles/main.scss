@@ -1,0 +1,20 @@
+@import "_colors";
+
+.header {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+.footer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-wrapper {
+  height: 100vh;
+}
