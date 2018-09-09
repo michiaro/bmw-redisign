@@ -1,13 +1,15 @@
 <template lang="pug">
   #app
-    header.header i'm fixed header
+    Header
+    Badge
     swiper(
       :options="swiperOption",
       ref="mySwiper"
     )
       swiper-slide(
         data-hash="overview"
-      ) i'm overview screen
+      )
+        Overview
       swiper-slide(
         data-hash="design"
       ) i'm design screen
@@ -27,18 +29,24 @@
       .swiper-pagination(
         slot="pagination"
       )
-    footer.footer i'm fixed footer
+    Footer
     //- <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import Overview from './components/Overview.vue';
+import Badge from './components/Badge.vue';
 
 export default {
   name: "app",
   components: {
-    // HelloWorld
+    Header,
+    Footer,
+    Overview,
+    Badge,
   },
   data() {
     return {
@@ -68,8 +76,29 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "./styles/_globals";
+
 #app {
   
 }
+
+.swiper {  
+  
+}
+
+.swiper-container-vertical > .swiper-pagination-bullets {
+  right: 48px;
+}
+.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 21px 0 0px;
+  width: 3px;
+  height: 3px;
+  background: white;
+}
+
+.swiper-slide {
+
+}
+
 </style>

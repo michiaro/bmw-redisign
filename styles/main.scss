@@ -1,14 +1,45 @@
+@import "_grid";
 @import "_colors";
+@import "_globals";
 
-.header {
-  position: fixed;
-  top: 20px;
-  left: 20px;
+html {
+  background: $color-background;
+  color: $color-text;
+  font-family: $font-gilroy;
 }
-.footer {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
+
+a {
+  &:focus {
+    outline: 1px $color-primary outset;
+  }
+  
+  &:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s;
+  }
+}
+  :focus {
+  outline: 1px $color-primary outset;
+}
+
+.color-background--contrast {
+  background: $color-background--contrast;
+}
+
+.color-text {
+  color: $color-text;
+}
+
+.color-text--contrast {
+  color: $color-text--contrast;
+}
+
+.color-text--muted {
+  color: $color-text--muted;
+}
+
+.color-text--contrast--muted {
+  color: $color-text--contrast--muted;
 }
 
 .swiper-container {

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="15px" height="24px" version="1.0" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 15 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .scroll__mouse {
+      stroke:#FEFEFE;
+      stroke-width:1.18129;
+    }
+    .scroll__wheel {
+      stroke:#FEFEFE;
+      stroke-width:1.18129;
+      stroke-linecap:round;
+    }
+    .scroll__stroke {
+      fill:none;
+    }
+   ]]>
+  </style>
+ </defs>
+  <path class="scroll__stroke scroll__wheel" d="M7 10l0 -4"/>
+  <path class="scroll__stroke scroll__mouse" d="M1 8c0,-4 3,-7 6,-7 4,0 7,3 7,7l0 8c0,4 -3,7 -7,7 -3,0 -6,-3 -6,-7l0 -8z"/>
+</svg>

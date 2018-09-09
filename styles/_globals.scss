@@ -1,0 +1,101 @@
+@import "_colors";
+
+$font-gilroy: "Gilroy", Helvetica, Arial, sans-serif;
+$font-ptsans: "PT Sans", sans-serif;
+
+$font-size-medium: 16px;
+$base: 16px;
+
+@mixin font-gilroy--light {
+  font-family: $font-gilroy;
+  font-weight: 300;
+}
+
+@mixin font-gilroy--bold {
+  font-family: $font-gilroy;
+  font-weight: 700;
+}
+
+@mixin font-ptsans--regular {
+  font-family: $font-ptsans;
+  font-weight: 400;
+}
+
+@mixin font-ptsans--bold {
+  font-family: $font-ptsans;
+  font-weight: 700;
+}
+
+.title {
+  @include font-gilroy--bold;
+
+  color: $color-text;
+  font-size: 64px;
+  line-height: 70px;
+}
+
+.subtitle {
+  @include font-gilroy--bold;
+
+  color: $color-text;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.text {
+  @include font-ptsans--regular;
+
+  color: $color-text;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-body {
+  @include font-ptsans--regular;
+
+  color: $color-text--muted;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-small {
+  @include font-ptsans--regular;
+
+  color: $color-text--muted;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -1.5%;
+}
+
+.title--contrast {
+  @include font-gilroy--bold;
+
+  color: $color-text--contrast;
+  font-size: 64px;
+  line-height: 0.93;
+}
+
+.subtitle--contrast {
+  @include font-gilroy--bold;
+
+  color: $color-text--contrast;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.text-body--contrast {
+  @include font-ptsans--regular;
+
+  color: $color-text--contrast--muted;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.text-small--contrast {
+  @include font-ptsans--regular;
+
+  color: $color-text--contrast--muted;
+  font-size: 12px;
+  line-height: 1.15;
+  letter-spacing: -1.5%;
+}
