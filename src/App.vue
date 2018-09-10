@@ -6,23 +6,26 @@
       :options="swiperOption",
       ref="mySwiper"
     )
-      swiper-slide(
+      swiper-slide.swiper-slide__overview(
         data-hash="overview"
       )
         Overview
-      swiper-slide(
+      swiper-slide.swiper-slide__design(
         data-hash="design"
-      ) i'm design screen
-      swiper-slide(
+      ) 
+        Design
+      swiper-slide.swiper-slide__engine(
         data-hash="engine"
-      ) i'm engine screen
-      swiper-slide(
+      ) 
+        Engine
+      swiper-slide.swiper-slide__interior(
         data-hash="interior"
-      ) i'm interior screen
-      swiper-slide(
+      ) 
+        Interior
+      swiper-slide.swiper-slide__fulltech(
         data-hash="fulltech"
       ) i'm full tech screen
-      swiper-slide(
+      swiper-slide.swiper-slide__contact(
         data-hash="contact"
       ) i'm contact screen
 
@@ -30,29 +33,34 @@
         slot="pagination"
       )
     Footer
-    //- <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Overview from './components/Overview.vue';
 import Badge from './components/Badge.vue';
+import Overview from './components/Overview.vue';
+import Design from './components/Design.vue';
+import Engine from './components/Engine.vue';
+import Interior from './components/Interior.vue';
 
 export default {
   name: "app",
   components: {
     Header,
     Footer,
-    Overview,
     Badge,
+    Overview,
+    Design,
+    Engine,
+    Interior,
   },
   data() {
     return {
       swiperOption: {
         direction: 'vertical',
-        slidesPerView: 1,
+        slidesPerView: 'auto',
         mousewheel: true,
         pagination: {
           el: '.swiper-pagination',
@@ -62,7 +70,10 @@ export default {
         hashNavigation: {
           watchState: true,
         },
-      }
+        simulateTouch: false,
+        ignoreTouchClass: 'swiper-slide__interior',
+        effect:'slide',
+      },
     };
   },
   computed: {
@@ -85,6 +96,13 @@ export default {
 
 .swiper {  
   
+  &-slide {
+    overflow-y: scroll;
+
+    &__interior {
+      height: 150%;
+    }
+  }
 }
 
 .swiper-container-vertical > .swiper-pagination-bullets {
@@ -101,4 +119,12 @@ export default {
 
 }
 
+.container-scroll {
+  width: 100%;
+  height: 100%;
+}
+.slide-scroll {
+  height: 100%;
+  box-sizing: border-box;
+}
 </style>

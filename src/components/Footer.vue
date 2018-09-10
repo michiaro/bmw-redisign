@@ -69,7 +69,7 @@ export default {
   }
 }
 .scroll {
-  animation: mousemove 2s alternate infinite;
+  animation: mousemove 1.5s alternate infinite;
 
   &__mouse {
     stroke:#FEFEFE;
@@ -81,7 +81,7 @@ export default {
     stroke-linecap: round;
     stroke-dasharray: 10;
     stroke-dashoffset: 10;
-    animation: scroll 2s linear alternate infinite;
+    animation: scroll 1.5s linear alternate infinite;
   }
   &__stroke {
     fill:none;

@@ -2,7 +2,7 @@
   section.overview
     .container
       .row.row--middle
-        .col.col-xs-4.col-md-2
+        .col.col-xs-4.col-xl-2
           h1.overview__title.title Создан дарить острые ощущения
           Button.overview__button
 </template>
@@ -34,7 +34,7 @@ export default {
     &__button {
       margin-top: 155px;
       text-transform: uppercase;
-      padding: 7px 25px 9px;
+      padding: 12px 25px;
     }
   }
 </style>

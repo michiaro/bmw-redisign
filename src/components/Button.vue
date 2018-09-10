@@ -1,5 +1,5 @@
 <template lang="pug">
-  button.button.text Записаться на тест-драйв
+  a.button.text(href="#contact") Записаться на тест-драйв
 </template>
 
 <script>
@@ -15,16 +15,19 @@ export default {
 @import "./styles/_colors";
 
 .button {
+  display: inline-block;
   background: $color-primary;
   color: $color-text;
-  padding: 3px 22px 5px;
+  padding: 5px 22px;
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background: $color-primary--hover;
     color: $color-text--hover;
+    opacity: 1;
   }
 
   &:active {
