@@ -1,100 +1,67 @@
 @import "_colors";
 
-$font-gilroy: "Gilroy-extrabold", Helvetica, Arial, sans-serif;
-$font-ptsans: "PTSans-regular", sans-serif;
-
-$font-gilroy-light: "Gilroy-light", Helvetica, Arial, sans-serif;
-$font-ptsans-bold: "PTSans-bold", sans-serif;
+$font-gilroy: "Gilroy", sans-serif;
+$font-ptsans: "PT Sans", sans-serif;
 
 $font-size-medium: 16px;
 $base: 16px;
 
-@mixin font-gilroy--light {
+@mixin font-gilroy {
   font-family: $font-gilroy;
+  font-weight: 800;
 }
 
-@mixin font-gilroy--bold {
-  font-family: $font-gilroy;
-}
-
-@mixin font-ptsans--regular {
+@mixin font-ptsans {
   font-family: $font-ptsans;
 }
 
 @mixin font-ptsans--bold {
-  font-family: $font-ptsans-bold;
+  font-family: $font-ptsans;
+  font-weight: bold;
 }
 
 .title {
-  @include font-gilroy--bold;
+  @include font-gilroy;
 
-  color: $color-text;
   font-size: 64px;
-  line-height: 70px;
+  line-height: 1.09375;
 }
 
 .subtitle {
-  @include font-gilroy--bold;
+  @include font-gilroy;
 
-  color: $color-text;
   font-size: 24px;
-  line-height: 28px;
-}
-
-.text {
-  @include font-ptsans--regular;
-
-  color: $color-text;
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 1.16;
+  margin-bottom: 11px;
 }
 
 .text-body {
-  @include font-ptsans--regular;
+  @include font-ptsans;
 
-  color: $color-text--muted;
   font-size: 16px;
   line-height: 24px;
 }
 
 .text-small {
-  @include font-ptsans--regular;
+  @include font-ptsans;
 
-  color: $color-text--muted;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -1.5%;
 }
 
-.title--contrast {
-  @include font-gilroy--bold;
+.color {
+  color: $color-text;
 
-  color: $color-text--contrast;
-  font-size: 64px;
-  line-height: 70px;
-}
+  &--muted {
+    color: $color-text--muted;
+  }
 
-.subtitle--contrast {
-  @include font-gilroy--bold;
+  &--contrast {
+    color: $color-text--contrast;
+  }
 
-  color: $color-text--contrast;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-.text-body--contrast {
-  @include font-ptsans--regular;
-
-  color: $color-text--contrast--muted;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.text-small--contrast {
-  @include font-ptsans--regular;
-
-  color: $color-text--contrast--muted;
-  font-size: 12px;
-  line-height: 18px;
-  letter-spacing: -1.5%;
+  &--contrast--muted {
+    color: $color-text--contrast--muted;
+  }
 }

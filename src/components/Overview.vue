@@ -3,7 +3,7 @@
     .container
       .row.row--middle
         .col.col-xs-4.col-xl-2
-          h1.overview__title.title Создан дарить острые ощущения
+          h1.overview__title.title.color Создан дарить острые ощущения
           Button.overview__button
 </template>
 
@@ -15,10 +15,11 @@ export default {
   components: {
     Button,
   },
-  props: {
-    
+  methods() {
+    serverBus.$emit('badgeChanged', (this.badge));
   }
 }
+
 </script>
 
 <style lang="scss">

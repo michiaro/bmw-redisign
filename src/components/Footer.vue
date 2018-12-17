@@ -28,9 +28,9 @@
         path.scroll__stroke.scroll__wheel(d="M7 10l0 -4")
         path.scroll__stroke.scroll__mouse(d="M1 8c0,-4 3,-7 6,-7 4,0 7,3 7,7l0 8c0,4 -3,7 -7,7 -3,0 -6,-3 -6,-7l0 -8z")
     .lang
-      .lang__item.text.lang__item--active 
+      .lang__item.text-body.lang__item--active 
         | RU
-      .lang__item.text 
+      .lang__item.text-body 
         | EN
 
 </template>

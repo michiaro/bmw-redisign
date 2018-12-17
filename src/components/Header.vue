@@ -1,15 +1,15 @@
 <template lang="pug">
   header.header
     nav.nav
-      a(href="/").logo.subtitle BMW 8 Coupe
+      a(href="/").logo.subtitle.color BMW 8 Coupe
       .nav__list
-        a.nav__link.text(href="#design") 
+        a.nav__link.text-body.color(href="#design") 
           | Дизайн
-        a.nav__link.text(href="#engine")
+        a.nav__link.text-body.color(href="#engine")
           | Двигатель
-        a.nav__link.text(href="#interior")
+        a.nav__link.text-body.color(href="#interior")
           | Интерьер
-        a.nav__link.text(href="#fulltech")
+        a.nav__link.text-body.color(href="#fulltech")
           | Технические характеристики
       Button
 

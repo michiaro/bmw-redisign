@@ -40,7 +40,7 @@ export default {
 
 <style lang="scss">
   .interior {
-    height: 150%;
+    height: 100%;
     background: url("./img/interior.jpg") center no-repeat;
     background-size: cover;
 
@@ -49,7 +49,7 @@ export default {
     }
 
     &__subtitle {
-      margin-bottom: 11px;
+      
     }
 
     &__text {

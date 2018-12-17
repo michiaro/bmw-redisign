@@ -1,5 +1,5 @@
 <template lang="pug">
-  a.button.text(href="#contact") Записаться на тест-драйв
+  a.button.text-body(href="#contact") Записаться на тест-драйв
 </template>
 
 <script>

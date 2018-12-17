@@ -1,13 +1,21 @@
 <template lang="pug">
-  .badge.text-body i'm fixed badge
+  .badge.text-body(:class="{'color-text--contrast' : isContrast}") {{content}}
 </template>
 
 <script>
+
 export default {
   name: 'Badge',
   props: {
-    
-  }
+    isContrast: {
+      type: Boolean,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    }
+  },
 }
 </script>
 
@@ -15,11 +23,11 @@ export default {
 .badge {
   position: fixed;
   top: 48%;
-  left: 0;
+  left: 45px;
   z-index: 20;
   text-transform: uppercase;
   font-size: 11px;
-  transform: rotate(-90deg) translateY(-66%);
+  transform: rotate(-90deg) translateY(-420%);
 }
 
 </style>

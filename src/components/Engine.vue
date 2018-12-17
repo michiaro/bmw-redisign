@@ -5,8 +5,8 @@
         .col.col-xs-4.col-lg-2
           img.engine__image(src="./img/engine.png")
         .col.col-xs-4.col-lg-2
-          h1.design__title.title--contrast Двигатель TwinPower Turbo
-          .engine__text.text-body--contrast
+          h1.design__title.title.color--contrast Двигатель TwinPower Turbo
+          .engine__text.text-body.color--contrast--muted
             | Экстремальная мощность и&nbsp;покой в&nbsp;салоне. 8-цилиндровый двига&shy;тель BMW TwinPower&nbsp;Turbo довел динамику 
             | и&nbsp;эффек&shy;тивность BMW 8&nbsp;серии до&nbsp;высокого уровня. Два турбонагне&shy;тателя с&nbsp;изменяемой 
             | геометрией турбин и&nbsp;давлением впрыска 2500 бар повы&shy;шют эффектив&shy;ность агрегата. Выпускная система с&nbsp;актив&shy;ными 
@@ -15,29 +15,29 @@
             .row
               .col.col-xs-4.col-lg-2
                 .engine__fact
-                  .engine__fact-title.title--contrast
+                  .engine__fact-title.title.color--contrast
                     | 8
                     span.engine__fact-title--small
-                  .engine__fact-text.text-body--contrast
+                  .engine__fact-text.text-body.color--contrast
                     | количество клапанов
                 .engine__fact
-                  .engine__fact-title.title--contrast
+                  .engine__fact-title.title.color--contrast
                     | 250
                     span.engine__fact-title--small км/ч
-                  .engine__fact-text.text-body--contrast
+                  .engine__fact-text.text-body.color--contrast
                     | максимальная скорость
               .col.col-xs-4.col-lg-2
                 .engine__fact
-                  .engine__fact-title.title--contrast
+                  .engine__fact-title.title.color--contrast
                     | 530
                     span.engine__fact-title--small л.с.
-                  .engine__fact-text.text-body--contrast
+                  .engine__fact-text.text-body.color--contrast
                     | максимальная мощность двигателя
                 .engine__fact
-                  .engine__fact-title.title--contrast
+                  .engine__fact-title.title.color--contrast
                     | 4.9
                     span.engine__fact-title--small с
-                  .engine__fact-text.text-body--contrast
+                  .engine__fact-text.text-body.color--contrast
                     | время разгона с 0 до 100 км/ч
 </template>
 
