@@ -18,7 +18,7 @@ export default {
   display: inline-block;
   background: $color-primary;
   color: $color-text;
-  padding: 5px 22px;
+  padding: 5px 22px 7px;
   border: none;
   border-radius: 2px;
   cursor: pointer;

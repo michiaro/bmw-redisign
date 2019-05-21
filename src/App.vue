@@ -1,10 +1,17 @@
 <template lang="pug">
   #app
-    Header(:isContrast="isContrastScreen")
-    Badge(:isContrast="isContrastScreen", :content="currentBadgeText")
+    Header(
+      :isContrast="isContrastScreen"
+    )
+    Badge(
+      :isContrast="isContrastScreen", 
+      :content="currentBadgeText", 
+      v-if="!isMobile",
+      v-cloak=""
+    )
     swiper(
       :options="swiperOption",
-      ref="fullScreenSwiper"
+      ref="fullScreenSwiper",
     )
       swiper-slide(
         v-for="screen in screensConfig",
@@ -13,10 +20,16 @@
       )
         component(:is="screen.component")
 
-      .swiper-pagination(
-        slot="pagination"
+      .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets(
+        slot="pagination",
+        :class="{'swiper-pagination--contrast' : isContrastScreen}"
       )
-    Footer(:isContrast="isContrastScreen")
+    Footer(
+      :isContrast="isContrastScreen", 
+      :isLast="isLastScreen", 
+      v-if="!isMobile",
+      v-cloak=""
+    )
   </div>
 </template>
 
@@ -46,6 +59,8 @@ export default {
   },
   data() {
     return {
+      isMenuOpen: false,
+      isMobile: false,
       swiperOption: {
         direction: "vertical",
         slidesPerView: "auto",
@@ -68,42 +83,59 @@ export default {
           name: "overview",
           isContrast: false,
           badgeText: "с удовольствием за рулем",
-          component: Overview
+          component: Overview,
+          isLast: false
         },
         {
           name: "design",
           isContrast: false,
           badgeText: "характер в каждой детали",
-          component: Design
+          component: Design,
+          isLast: false
         },
         {
           name: "engine",
           isContrast: true,
           badgeText: "абсолютная мощность. идеальная точность",
-          component: Engine
+          component: Engine,
+          isLast: false
         },
         {
           name: "interior",
           isContrast: false,
           badgeText: "бэха, ты просто космос",
-          component: Interior
+          component: Interior,
+          isLast: false
         },
         {
           name: "fulltech",
           isContrast: true,
           badgeText: "детали совершенства",
-          component: Fulltech
+          component: Fulltech,
+          isLast: false
         },
         {
           name: "contact",
           isContrast: false,
           badgeText: "познакомьтесь с благородным спортсменом",
-          component: Contact
+          component: Contact,
+          isLast: true
         }
       ]
     };
   },
-  methods: {},
+  methods: {
+    handleResize() {
+      this.isMobile = window.innerWidth < 1200;
+      this.isMenuOpen = window.innerWidth >= 1200;
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+    }
+  },
   computed: {
     swiper() {
       return this.$refs.fullScreenSwiper.swiper;
@@ -114,13 +146,48 @@ export default {
     currentBadgeText() {
       return this.screensConfig[this.activeIndex].badgeText;
     },
+    isLastScreen() {
+      return this.screensConfig[this.activeIndex].isLast;
+    }
   },
   mounted() {
     this.swiper.on("slideChangeTransitionEnd", () => {
       this.activeIndex = this.swiper.activeIndex;
-      console.log(this.swiper.activeIndex);
     });
-    // this.swiper.slideTo(3, 1000, false);
+
+    var startScroll, touchStart, touchCurrent;
+    this.swiper.slides.on(
+      "touchstart",
+      function(e) {
+        startScroll = this.scrollTop;
+        touchStart = e.targetTouches[0].pageY;
+      },
+      true
+    );
+    this.swiper.slides.on(
+      "touchmove",
+      function(e) {
+        touchCurrent = e.targetTouches[0].pageY;
+        var touchesDiff = touchCurrent - touchStart;
+        var slide = this;
+        var onlyScrolling =
+          slide.scrollHeight > slide.offsetHeight && //allow only when slide is scrollable
+          ((touchesDiff < 0 && startScroll === 0) || //start from top edge to scroll bottom
+          (touchesDiff > 0 &&
+            startScroll === slide.scrollHeight - slide.offsetHeight) || //start from bottom edge to scroll top
+            (startScroll > 0 &&
+              startScroll < slide.scrollHeight - slide.offsetHeight)); //start from the middle
+        if (onlyScrolling) {
+          e.stopPropagation();
+        }
+      },
+      true
+    );
+
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.handleResize);
+      this.handleResize();
+    });
   }
 };
 </script>
@@ -128,12 +195,14 @@ export default {
 <style lang="scss">
 @import "./styles/_globals";
 
-#app {
+[v-cloak] {
+  display: none;
 }
 
 .swiper {
   &-slide {
     overflow-y: scroll;
+    overflow-x: hidden;
 
     &__interior {
       height: 150%;
@@ -141,9 +210,16 @@ export default {
   }
 }
 
-.swiper-container-vertical > .swiper-pagination-bullets {
-  right: 48px;
+.swiper-container-vertical .swiper-pagination {
+  right: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  .swiper-container-vertical .swiper-pagination {
+    right: 48px;
+  }
+}
+
 .swiper-container-vertical
   > .swiper-pagination-bullets
   .swiper-pagination-bullet {
@@ -153,7 +229,10 @@ export default {
   background: white;
 }
 
-.swiper-slide {
+.swiper-container-vertical
+  > .swiper-pagination--contrast.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  background: black;
 }
 
 .container-scroll {

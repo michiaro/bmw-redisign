@@ -3,7 +3,7 @@
     .container
       .row.row--middle
         .col.col-xs-4.col-xl-2
-          h1.overview__title.title.color Создан дарить острые ощущения
+          h1.overview__title.title.text-color Создан дарить острые ощущения
           Button.overview__button
 </template>
 
@@ -15,9 +15,6 @@ export default {
   components: {
     Button,
   },
-  methods() {
-    serverBus.$emit('badgeChanged', (this.badge));
-  }
 }
 
 </script>
@@ -33,9 +30,13 @@ export default {
     }
 
     &__button {
-      margin-top: 155px;
       text-transform: uppercase;
       padding: 12px 25px;
+      margin-top: 30px;
+
+      @media screen and (min-width:768px) {
+        margin-top: 155px;
+      }
     }
   }
 </style>

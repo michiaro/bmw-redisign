@@ -1,33 +1,33 @@
 <template lang="pug">
-  .badge.text-body(:class="{'color-text--contrast' : isContrast}") {{content}}
+  .badge.text-badge(:class="{'color-text--contrast' : isContrast}") {{content}}
 </template>
 
 <script>
-
 export default {
-  name: 'Badge',
+  name: "Badge",
   props: {
     isContrast: {
       type: Boolean,
-      required: true,
+      required: true
     },
     content: {
       type: String,
-      required: true,
+      required: true
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss">
 .badge {
   position: fixed;
-  top: 48%;
-  left: 45px;
+  top: 46%;
+  left: 0;
   z-index: 20;
   text-transform: uppercase;
-  font-size: 11px;
-  transform: rotate(-90deg) translateY(-420%);
+  -webkit-transform: rotate(-90deg) translateY(-400%);
+  transform: rotate(-90deg) translateY(-400%);
+  width: 300px;
+  text-align: center;
 }
-
 </style>

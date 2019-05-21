@@ -1,32 +1,63 @@
 <template lang="pug">
-  header.header
+  header.header(
+    :class="{'contrast' : isContrast}",
+    v-if="!isMobile",
+    v-cloak=""
+  )
     nav.nav
-      a(href="/").logo.subtitle.color BMW 8 Coupe
+      a(href="#overview").logo.subtitle.text-color BMW 8 Coupe
       .nav__list
-        a.nav__link.text-body.color(href="#design") 
+        a.nav__link.text-body.text-color(href="#design") 
           | Дизайн
-        a.nav__link.text-body.color(href="#engine")
+        a.nav__link.text-body.text-color(href="#engine")
           | Двигатель
-        a.nav__link.text-body.color(href="#interior")
+        a.nav__link.text-body.text-color(href="#interior")
           | Интерьер
-        a.nav__link.text-body.color(href="#fulltech")
+        a.nav__link.text-body.text-color(href="#fulltech")
           | Технические характеристики
       Button
 
 </template>
 
 <script>
-import Button from './Button.vue';
+import Button from "./Button.vue";
 
 export default {
-  name: 'Header',
+  name: "Header",
   components: {
-    Button,
+    Button
+  },
+  data() {
+    return {
+      isMenuOpen: false,
+      isMobile: false
+    }
   },
   props: {
-    
+    isContrast: {
+      type: Boolean,
+      required: true
+    }
+  },
+  methods: {
+    handleResize() {
+      this.isMobile = window.innerWidth < 1200;
+      this.isMenuOpen = window.innerWidth >= 1200;
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.handleResize);
+      this.handleResize();
+    });
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -52,8 +83,8 @@ export default {
     flex-flow: row nowrap;
     justify-content: space-between;
     margin-right: 30px;
-  } 
-  
+  }
+
   &__link {
     text-decoration: none;
     padding: 5px;
@@ -64,6 +95,5 @@ export default {
 .logo {
   flex-grow: 1;
   text-decoration: none;
-
 }
 </style>

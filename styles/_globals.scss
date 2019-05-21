@@ -23,16 +23,25 @@ $base: 16px;
 .title {
   @include font-gilroy;
 
-  font-size: 64px;
+  font-size: 32px;
   line-height: 1.09375;
 }
 
 .subtitle {
   @include font-gilroy;
 
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.16;
   margin-bottom: 11px;
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    font-size: 64px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
 }
 
 .text-body {
@@ -50,18 +59,42 @@ $base: 16px;
   letter-spacing: -1.5%;
 }
 
-.color {
+.text-badge {
+  @include font-ptsans;
+
+  font-size: 11px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+}
+
+.text-color {
   color: $color-text;
 
   &--muted {
     color: $color-text--muted;
   }
+}
 
-  &--contrast {
+.background-color {
+  background: $color-background;
+}
+
+.contrast {
+  .text-color {
     color: $color-text--contrast;
+  
+    &--muted {
+      color: $color-text--contrast--muted;
+    }
   }
 
-  &--contrast--muted {
-    color: $color-text--contrast--muted;
+  .background-color {
+    background: $color-background--contrast;
+  }
+
+  &.swiper {
+    &-slide {
+      background-color: $color-background--contrast;
+    }
   }
 }
